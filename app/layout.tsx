@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} antialiased`}>
-      <body className="font-sans">
+      <body className="font-sans page-fade">
         <Suspense fallback={<div>Loading...</div>}>
           {children}
           <Analytics />
