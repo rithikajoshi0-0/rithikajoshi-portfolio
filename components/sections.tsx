@@ -5,15 +5,19 @@ export function SectionHeader({
   eyebrow,
   title,
   subtitle,
+  titleSize = "md",
 }: {
   eyebrow: string
   title: string
   subtitle?: string
+  titleSize?: "sm" | "md" | "lg"
 }) {
+  const size =
+    titleSize === "lg" ? "text-4xl md:text-6xl" : titleSize === "sm" ? "text-xl md:text-2xl" : "text-3xl md:text-4xl"
   return (
     <header className="space-y-2">
       <p className="text-xs uppercase tracking-widest text-slate-400">{eyebrow}</p>
-      <h2 className="text-pretty text-2xl md:text-3xl font-semibold">
+      <h2 className={`text-pretty ${size} font-serif font-semibold`}>
         <span className="text-cyan-300">{title}</span>
       </h2>
       {subtitle ? <p className="text-slate-300 leading-relaxed max-w-2xl">{subtitle}</p> : null}
@@ -25,7 +29,12 @@ export function WhoIAm() {
   return (
     <section id="who-i-am" className="relative py-16 md:py-24">
       <div className="mx-auto max-w-4xl px-4">
-        <SectionHeader eyebrow="Who I Am" title="Rithika Joshi B" subtitle="Artificial Intelligence and Data Science" />
+        <SectionHeader
+          eyebrow="Who I Am"
+          title="Rithika Joshi B"
+          subtitle="Artificial Intelligence and Data Science"
+          titleSize="lg"
+        />
         <p className="mt-6 text-slate-300 leading-relaxed">
           Rithika Joshi B is a passionate AI and Data Science developer who thrives at the intersection of advanced
           programming and innovation. With expertise in Python and C extensions, data structures, and full‑stack
@@ -54,30 +63,30 @@ export function Projects() {
     {
       title: "Dynamic Routing Optimization System",
       desc: "An intelligent system to optimize routes with adaptive heuristics and real‑time decisions.",
-      img: "/route-optimization-graph.jpg",
+      img: "/routing-optimization-graph-space-theme.jpg",
     },
     {
       title: "Ryze Platform",
       desc: "A platform initiative focused on scalable services and developer‑friendly tooling.",
-      img: "/scalable-platform-diagram.jpg",
+      img: "/scalable-platform-diagram-dark-ui.jpg",
     },
     {
       title: "EVE — Education via Entertainment",
       desc: "An engaging learning experience where interactive content accelerates understanding.",
-      img: "/education-via-entertainment.jpg",
+      img: "/education-via-entertainment-ui-dark.jpg",
     },
     {
       title: "Cynotech (In Progress)",
       desc: "A service website currently in development, centered on practical, reliable solutions.",
-      img: "/service-website-ui.jpg",
+      img: "/service-website-concept-dark-ui.jpg",
     },
   ]
 
   return (
-    <section id="galactic-ventures" className="relative py-16 md:py-24">
+    <section id="projects" className="relative py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <SectionHeader
-          eyebrow="Galactic Ventures"
+          eyebrow="Projects"
           title="Projects that orbit impact"
           subtitle="Selected work spanning optimization, platforms, and playful education."
         />
@@ -120,10 +129,10 @@ export function Skills() {
     "AI/ML",
   ]
   return (
-    <section id="skill-constellations" className="relative py-16 md:py-24">
+    <section id="skills" className="relative py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <SectionHeader
-          eyebrow="Skill Constellations"
+          eyebrow="Skills"
           title="Tools that power missions"
           subtitle="A focused toolkit for building reliable, scalable, and intelligent systems."
         />
@@ -144,10 +153,10 @@ export function Skills() {
 
 export function Contact() {
   return (
-    <section id="cosmic-connections" className="relative py-16 md:py-24">
+    <section id="contact" className="relative py-16 md:py-24">
       <div className="mx-auto max-w-4xl px-4">
         <SectionHeader
-          eyebrow="Cosmic Connections"
+          eyebrow="Contact"
           title="Let’s collaborate"
           subtitle="Open to opportunities, collaborations, and exploring new frontiers."
         />
